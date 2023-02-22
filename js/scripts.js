@@ -28,7 +28,7 @@ pokemonList = [
   },
   {
   name: 'Charizard',
-  height: 2,
+  height: 1.7,
   type: ['fire','flying']
   },
   {
