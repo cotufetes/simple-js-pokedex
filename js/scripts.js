@@ -48,3 +48,10 @@ pokemonList = [
   }
 ];
 
+for (let pokemon = 0; pokemon < pokemonList.length; pokemon++) {
+  if (pokemonList[pokemon].height >= 1.5) {
+    document.write('<p>' + pokemonList[pokemon].name + '\'s height: ' + pokemonList[pokemon].height + 'm - Wow, that\'s big!</p>');
+  } else {
+    document.write('<p>' + pokemonList[pokemon].name + '\'s height: ' + pokemonList[pokemon].height + 'm</p>');
+  }
+}
