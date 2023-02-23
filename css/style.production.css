@@ -1,0 +1,96 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+/* Self-hosted Google Fonts (latin-ext)*/
+
+@font-face {
+    font-family: 'Source Code Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(fonts/SourceCodePro-Regular.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: 'Source Code Pro';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url(fonts/SourceCodePro-Italic.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: 'Source Code Pro';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(fonts/SourceCodePro-Bold.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: 'Source Code Pro';
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+    src: url(fonts/SourceCodePro-BoldItalic.woff2) format('woff2');
+}
+
+/*---------STYLE----------*/
+
+body {
+    background-color: #DC143C;
+    padding: 10%;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 18px;
+}
+  
+.pokedex {
+    border: 5px solid #000;
+    padding: 10%;
+}
+  
+.screen {
+    border: 5px solid #000;
+    padding: 10%;
+}
+  
+.pokedex {
+    width: 80%;
+    min-width: 250px;
+    margin: 0 auto;
+    background-color: #DCDCDC;
+    border-radius: 0 0 0 100px;
+}
+  
+.screen {
+    background-color: #32CD32;
+    border-radius: 50px;
+}
+  
+.one-pokemon {
+    border: 3px solid #000;
+    padding: 2% 5% 2% 5%;
+    margin-bottom: 2%;
+}
+  
+h3 {
+    text-decoration: underline;
+}
+  
+.big-pokemon {
+    font-style: italic;
+}
+
+/*------RESPONSIVE-------*/
+
+@media all and (max-width: 576px) {
+
+    body {
+        font-size: 0.8em;
+    }
+
+}
