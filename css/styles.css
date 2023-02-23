@@ -74,3 +74,13 @@ h3 {
 .big-pokemon {
     font-style: italic;
 }
+
+/*------RESPONSIVE-------*/
+
+@media all and (max-width: 576px) {
+
+    body {
+        font-size: 0.8em;
+    }
+
+}
