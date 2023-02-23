@@ -31,3 +31,46 @@
     font-display: swap;
     src: url(fonts/SourceCodePro-BoldItalic.woff2) format('woff2');
 }
+
+/*---------STYLE----------*/
+
+
+
+body {
+    background-color: rgb(228, 20, 61);
+    padding: 10%;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 18px;
+}
+  
+.pokedex, .screen {
+    border: 5px solid black;
+    padding: 10%;
+}
+  
+.pokedex {
+    width: 80%;
+    min-width: 250px;
+    margin: 0 auto;
+    background-color: lightgrey;
+    border-radius: 0 0 0 100px;
+}
+  
+.screen {
+    background-color: limegreen;
+    border-radius: 50px;
+}
+  
+.one-pokemon {
+    border: 3px solid black;
+    padding: 2% 5% 2% 5%;
+    margin-bottom: 2%;
+}
+  
+h3 {
+    text-decoration: underline;
+}
+  
+.big-pokemon {
+    font-style: italic;
+}
