@@ -69,7 +69,8 @@ pokemonList = [
 document.write(pokedexOpen + screenOpen);
 
 for (let pokemon = 0; pokemon < pokemonList.length; pokemon++) {
-      document.write(pokemonOpen + headlineOpen + pokemonList[pokemon].name + headlineClose + parOpen);
+  
+  document.write(pokemonOpen + headlineOpen + pokemonList[pokemon].name + headlineClose + parOpen);
   
   if (pokemonList[pokemon].height >= 1.5) {
     document.write(pokemonHeightText + pokemonList[pokemon].height + heightUnit + bigPokemonText);
@@ -78,6 +79,7 @@ for (let pokemon = 0; pokemon < pokemonList.length; pokemon++) {
   }
   
   document.write(parClose + divClose);
+  
 }
 
 document.write(divClose + divClose);
