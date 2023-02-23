@@ -33,18 +33,22 @@
 }
 
 /*---------STYLE----------*/
-
-
+:root {
+    --pokedex-color: #DC143C;
+    --border-color: #000;
+    --frame-color: #DCDCDC;
+    --screen-color: #32CD32;
+}
 
 body {
-    background-color: rgb(228, 20, 61);
+    background-color: var(--pokedex-color);
     padding: 10%;
     font-family: 'Source Code Pro', monospace;
     font-size: 18px;
 }
   
 .pokedex, .screen {
-    border: 5px solid black;
+    border: 5px solid var(--border-color);
     padding: 10%;
 }
   
@@ -52,17 +56,17 @@ body {
     width: 80%;
     min-width: 250px;
     margin: 0 auto;
-    background-color: lightgrey;
+    background-color: var(--frame-color);
     border-radius: 0 0 0 100px;
 }
   
 .screen {
-    background-color: limegreen;
+    background-color: var(--screen-color);
     border-radius: 50px;
 }
   
 .one-pokemon {
-    border: 3px solid black;
+    border: 3px solid var(--border-color);
     padding: 2% 5% 2% 5%;
     margin-bottom: 2%;
 }
