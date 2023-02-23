@@ -1,3 +1,19 @@
+//HTML variables
+let pokedexOpen = '<div class="pokedex">';
+let screenOpen = '<div class="screen">';
+let pokemonOpen = '<div class="one-pokemon">';
+let divClose = '</div>';
+let headlineOpen = '<h3>';
+let headlineClose = '</h3>';
+let parOpen = '<p>';
+let parClose = '</p>';
+let bigPokemonText = '<span class="big-pokemon"> - Wow, that\'s big!</span>';
+
+//Text strings
+let pokemonHeightText = 'Height: ';
+let heightUnit = ' m';
+
+//Pokemon list
 let pokemonList = [];
 
 pokemonList = [
@@ -48,10 +64,20 @@ pokemonList = [
   }
 ];
 
+//Pokedex
+
+document.write(pokedexOpen + screenOpen);
+
 for (let pokemon = 0; pokemon < pokemonList.length; pokemon++) {
+      document.write(pokemonOpen + headlineOpen + pokemonList[pokemon].name + headlineClose + parOpen);
+  
   if (pokemonList[pokemon].height >= 1.5) {
-    document.write('<h3>' + pokemonList[pokemon].name + '</h3> <p>> Height: ' + pokemonList[pokemon].height + ' m - <b>Wow, that\'s big!</b></p>');
+    document.write(pokemonHeightText + pokemonList[pokemon].height + heightUnit + bigPokemonText);
   } else {
-    document.write('<h3>' + pokemonList[pokemon].name + '</h3> <p>> Height: ' + pokemonList[pokemon].height + ' m</p>');
+    document.write(pokemonHeightText + pokemonList[pokemon].height + heightUnit);                  
   }
+  
+  document.write(parClose + divClose);
 }
+
+document.write(divClose + divClose);
