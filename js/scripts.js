@@ -1,18 +1,3 @@
-//HTML variables
-let pokedexOpen = '<div class="pokedex">';
-let screenOpen = '<div class="screen">';
-let pokemonOpen = '<div class="one-pokemon">';
-let divClose = '</div>';
-let headlineOpen = '<h3>';
-let headlineClose = '</h3>';
-let parOpen = '<p>';
-let parClose = '</p>';
-let bigPokemonText = '<span class="big-pokemon"> - Wow, that\'s big!</span>';
-
-//Text strings
-let pokemonHeightText = 'Height: ';
-let heightUnit = ' m';
-
 //Pokemon list
 let pokemonList = [];
 
@@ -20,17 +5,17 @@ pokemonList = [
   {
   name: 'Bulbasaur',
   height: 0.7,
-  type: ['grass', 'poison']
+  type: ['grass', ' poison']
   },
   {
   name: 'Ivysaur',
   height: 1,
-  type: ['grass','poison']
+  type: ['grass',' poison']
   },
   {
   name: 'Venusaur',
   height: 2,
-  type: ['grass','poison']
+  type: ['grass',' poison']
   },
   {
   name: 'Charmander',
@@ -45,7 +30,7 @@ pokemonList = [
   {
   name: 'Charizard',
   height: 1.7,
-  type: ['fire','flying']
+  type: ['fire',' flying']
   },
   {
   name: 'Squirtle',
@@ -64,22 +49,25 @@ pokemonList = [
   }
 ];
 
-//Pokedex
+//Open Pokedex
 
-document.write(pokedexOpen + screenOpen);
+document.write('<div class="pokedex"> <div class="screen">');
+
+//Display list
 
 for (let pokemon = 0; pokemon < pokemonList.length; pokemon++) {
   
-  document.write(pokemonOpen + headlineOpen + pokemonList[pokemon].name + headlineClose + parOpen);
+  document.write('<div class="one-pokemon"> <h3>' + pokemonList[pokemon].name + '</h3>');
   
-  if (pokemonList[pokemon].height >= 1.5) {
-    document.write(pokemonHeightText + pokemonList[pokemon].height + heightUnit + bigPokemonText);
+  if (pokemonList[pokemon].height > 1.5) {
+    document.write('<p> Height: ' + pokemonList[pokemon].height + ' m' + '<span class="big-pokemon"> - Wow, that\'s big!</span></p>');
   } else {
-    document.write(pokemonHeightText + pokemonList[pokemon].height + heightUnit);                  
-  }
-  
-  document.write(parClose + divClose);
-  
+    document.write('<p> Height: ' + pokemonList[pokemon].height + ' m </p>');
+  } 
+
+  document.write('<p> Type: ' + pokemonList[pokemon].type + '</p> </div>');
 }
 
-document.write(divClose + divClose);
+
+//Close Pokedex
+document.write('</div></div>');
