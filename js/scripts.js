@@ -1,3 +1,7 @@
+//Open Pokedex
+document.write('<div class="pokedex"> <div class="screen">');
+
+
 //Pokemon list
 let pokemonList = [];
 
@@ -49,24 +53,19 @@ pokemonList = [
   }
 ];
 
-//Open Pokedex
-
-document.write('<div class="pokedex"> <div class="screen">');
-
 //Display list
-
-for (let pokemon = 0; pokemon < pokemonList.length; pokemon++) {
+pokemonList.forEach(function(pokemon){
   
-  document.write('<div class="one-pokemon"> <h3>' + pokemonList[pokemon].name + '</h3>');
+  document.write('<div class="one-pokemon"> <h3>' + pokemon.name + '</h3>');
   
-  if (pokemonList[pokemon].height > 1.5) {
-    document.write('<p> Height: ' + pokemonList[pokemon].height + ' m' + '<span class="big-pokemon"> - Wow, that\'s big!</span></p>');
+  if (pokemon.height > 1.5) {
+    document.write('<p> Height: ' + pokemon.height + ' m' + '<span class="big-pokemon"> - Wow, that\'s big!</span></p>');
   } else {
-    document.write('<p> Height: ' + pokemonList[pokemon].height + ' m </p>');
+    document.write('<p> Height: ' + pokemon.height + ' m </p>');
   } 
 
-  document.write('<p> Type: ' + pokemonList[pokemon].type + '</p> </div>');
-}
+  document.write('<p> Type: ' + pokemon.type + '</p> </div>');
+});
 
 
 //Close Pokedex
