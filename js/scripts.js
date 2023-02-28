@@ -55,8 +55,13 @@ pokemonList = [
 
 //Display list
 pokemonList.forEach(function(pokemon){
+
+  function pokemonNumber(pokemonIndex) {
+    pokemonIndex = pokemonList.indexOf(pokemon);
+    return '#' + (pokemonIndex + 1) + ' '
+  }
   
-  document.write('<div class="one-pokemon"> <h3>' + pokemon.name + '</h3>');
+  document.write('<div class="one-pokemon"> <h3>' + pokemonNumber() + pokemon.name + '</h3>');
   
   if (pokemon.height > 1.5) {
     document.write('<p> Height: ' + pokemon.height + ' m' + '<span class="big-pokemon"> - Wow, that\'s big!</span></p>');
