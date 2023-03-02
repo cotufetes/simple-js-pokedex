@@ -1,6 +1,6 @@
 //IIFE to stabilise Pokémon list
 let pokemonRepository = (function () {
-  let pokemonList = [
+  let pokemonArray = [
     {
     name: 'Bulbasaur',
     height: 0.7,
@@ -33,47 +33,42 @@ let pokemonRepository = (function () {
     }
   ];
   
-  function add(pokemon){
-    if (typeof pokemon === 'object') {
+  // Add pokémon to the list if it's an object with specific keys
+  function add(pokemon){ 
+    if (typeof pokemon === 'object' &&
+       'name' in pokemon &&
+       'height' in pokemon &&
+       'type' in pokemon) {
       pokemonList.push(pokemon);
+    } else {
+      console.log('Invalid Pokémon');
     }
   }
   
-  function getAll(){
-    return pokemonList;
+  //Retrieve list
+  function getAll(){ 
+    return pokemonArray;
   }
+  
+  //Create list items for each pokemon and display them as buttons
+  function addPokemonItem(pokemon){ 
+    let pokemonList = document.querySelector('.pokemon-list');
+    let pokemonItem = document.createElement('li');
+    let pokemonButton = document.createElement('button');
+    pokemonButton.innerText = pokemon.name;
+    pokemonButton.classList.add('pokemon-button');
+    pokemonItem.appendChild(pokemonButton);
+    pokemonList.appendChild(pokemonItem);
+  };
   
   return {
     add,
-    getAll
+    getAll,
+    addPokemonItem
   };
 })();
 
-//Example of adding a Pokémon to the list
-pokemonRepository.add({
-  name: 'Caterpie',
-  height: 0.3,
-  type: 'bug'
+//Display pokemon list by calling getAll & forEach functions and returning created items
+pokemonRepository.getAll().forEach(function(pokemon){
+  pokemonRepository.addPokemonItem(pokemon)
 });
-
-//forEach function to show each pokemon
-function showPokemon(pokemon){
-  document.write('<div class="one-pokemon"><h3>' + pokemon.name + '</h3>');
-  
-  if (pokemon.height > 1.5) {
-    document.write('<p>Height: ' + pokemon.height + ' m' + '<span class="big-pokemon"> - Wow, that\'s big!</span></p>');
-  } else {
-    document.write('<p>Height: ' + pokemon.height + ' m</p>');
-  } 
-
-  document.write('<p>Type: ' + pokemon.type + '</p></div>');
-};
-
-//Open Pokédex
-document.write('<div class="pokedex"><div class="screen">');
-
-//Display list by calling getAll & forEach functions
-pokemonRepository.getAll().forEach(showPokemon);
-
-//Close Pokédex
-document.write('</div></div>');

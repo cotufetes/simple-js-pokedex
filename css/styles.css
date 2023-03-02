@@ -46,38 +46,6 @@ body {
     font-family: 'Source Code Pro', monospace;
     font-size: 18px;
 }
-  
-.pokedex, .screen {
-    border: 5px solid var(--border-color);
-    padding: 10%;
-}
-  
-.pokedex {
-    width: 80%;
-    min-width: 250px;
-    margin: 0 auto;
-    background-color: var(--frame-color);
-    border-radius: 0 0 0 100px;
-}
-  
-.screen {
-    background-color: var(--screen-color);
-    border-radius: 50px;
-}
-  
-.one-pokemon {
-    border: 3px solid var(--border-color);
-    padding: 2% 5% 2% 5%;
-    margin-bottom: 2%;
-}
-  
-h3 {
-    text-decoration: underline;
-}
-  
-.big-pokemon {
-    font-style: italic;
-}
 
 /*------RESPONSIVE-------*/
 
