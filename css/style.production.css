@@ -42,55 +42,91 @@
 /*---------STYLE----------*/
 
 body {
-    background-color: #DC143C;
-    padding: 10%;
+    background-color: #046BFB;
+    padding: 5%;
     font-family: 'Source Code Pro', monospace;
-    font-size: 18px;
+    font-size: 25px;
 }
-  
-.pokedex {
-    border: 5px solid #000;
-    padding: 10%;
-}
-  
-.screen {
-    border: 5px solid #000;
-    padding: 10%;
-}
-  
-.pokedex {
-    width: 80%;
+
+.pokeball {
+    display: block;
+    width: 40%;
     min-width: 250px;
+    max-width: 600px;
+    height: auto;
     margin: 0 auto;
-    background-color: #DCDCDC;
-    border-radius: 0 0 0 100px;
 }
-  
-.screen {
-    background-color: #32CD32;
-    border-radius: 50px;
+
+.pokemon-list{
+    padding: 25px 0 50px 0;
+    list-style: none;
+    /*----Start grid fallback----*/
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; 
+    -ms-flex-wrap: wrap; 
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    /*----End grid fallback----*/
+    display: -ms-grid;
+    display: grid; 
+    -ms-grid-columns: 1fr 50px 1fr 50px 1fr; 
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 50px;
 }
-  
-.one-pokemon {
-    border: 3px solid #000;
-    padding: 2% 5% 2% 5%;
-    margin-bottom: 2%;
+
+.pokemon-button {
+    width: 100%;
+    border: 5px solid #000;
+    -webkit-box-shadow: 5px 5px #000;
+            box-shadow: 5px 5px #000;
+    padding: 30px;
+    text-align: left;
+    letter-spacing: 0.1em;
 }
-  
-h3 {
-    text-decoration: underline;
+
+.pokemon-button:hover {
+    background-color: #FCEC2C;
+    font-weight: bold;
+    cursor: pointer;
 }
-  
-.big-pokemon {
-    font-style: italic;
+
+footer {
+    text-align: center;
 }
 
 /*------RESPONSIVE-------*/
 
+@media all and (max-width: 1080px) {
+
+    .pokemon-list{
+        -ms-grid-columns: 1fr 40px 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+}
+
 @media all and (max-width: 576px) {
 
     body {
-        font-size: 0.8em;
+        font-size: 20px;
+    }
+
+    .pokemon-list{
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .pokemon-button {
+        padding: 20px;
     }
 
 }

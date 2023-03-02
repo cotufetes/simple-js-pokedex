@@ -7,6 +7,11 @@ let pokemonRepository = (function () {
     type: ['grass', ' poison']
     },
     {
+      name: 'Ivysaur',
+      height: 1,
+      type: ['grass',' poison']
+      },
+    {
     name: 'Venusaur',
     height: 2,
     type: ['grass',' poison']
@@ -17,6 +22,11 @@ let pokemonRepository = (function () {
     type: 'fire'
     },
     {
+      name: 'Charmeleon',
+      height: 1.1,
+      type: 'fire'
+      },
+    {
     name: 'Charizard',
     height: 1.7,
     type: ['fire',' flying']
@@ -26,6 +36,11 @@ let pokemonRepository = (function () {
     height: 0.5,
     type: 'water'
     },
+    {
+      name: 'Wartortle',
+      height: 1,
+      type: 'water'
+      },
     {
     name: 'Blastoise',
     height: 1.6,

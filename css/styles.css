@@ -34,25 +34,87 @@
 
 /*---------STYLE----------*/
 :root {
-    --pokedex-color: #DC143C;
-    --border-color: #000;
-    --frame-color: #DCDCDC;
-    --screen-color: #32CD32;
+    --blue: #046BFB;
+    --black: #000;
+    --light-grey: #DCDCDC;
+    --red: #D81E1E;
+    --yellow: #FCEC2C;
+    --green: #18D52B;
 }
 
 body {
-    background-color: var(--pokedex-color);
-    padding: 10%;
+    background-color: var(--blue);
+    padding: 5%;
     font-family: 'Source Code Pro', monospace;
-    font-size: 18px;
+    font-size: 25px;
+}
+
+.pokeball {
+    display: block;
+    width: 40%;
+    min-width: 250px;
+    max-width: 600px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.pokemon-list{
+    padding: 25px 0 50px 0;
+    list-style: none;
+    /*----Start grid fallback----*/
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: center;
+    /*----End grid fallback----*/
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 50px;
+}
+
+.pokemon-button {
+    width: 100%;
+    border: 5px solid var(--black);
+    box-shadow: 5px 5px var(--black);
+    padding: 30px;
+    text-align: left;
+    letter-spacing: 0.1em;
+}
+
+.pokemon-button:hover {
+    background-color: var(--yellow);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
 }
 
 /*------RESPONSIVE-------*/
 
+@media all and (max-width: 1080px) {
+
+    .pokemon-list{
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+}
+
 @media all and (max-width: 576px) {
 
     body {
-        font-size: 0.8em;
+        font-size: 20px;
+    }
+
+    .pokemon-list{
+        flex-direction: column;
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .pokemon-button {
+        padding: 20px;
     }
 
 }
