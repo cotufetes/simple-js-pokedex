@@ -1,71 +1,25 @@
-//IIFE to stabilise Pokémon list
+//IIFE STARTS
 let pokemonRepository = (function () {
-  let pokemonArray = [
-    {
-    name: 'Bulbasaur',
-    height: 0.7,
-    type: ['grass', ' poison']
-    },
-    {
-      name: 'Ivysaur',
-      height: 1,
-      type: ['grass',' poison']
-      },
-    {
-    name: 'Venusaur',
-    height: 2,
-    type: ['grass',' poison']
-    },
-    {
-    name: 'Charmander',
-    height: 0.6,
-    type: 'fire'
-    },
-    {
-      name: 'Charmeleon',
-      height: 1.1,
-      type: 'fire'
-      },
-    {
-    name: 'Charizard',
-    height: 1.7,
-    type: ['fire',' flying']
-    },
-    {
-    name: 'Squirtle',
-    height: 0.5,
-    type: 'water'
-    },
-    {
-      name: 'Wartortle',
-      height: 1,
-      type: 'water'
-      },
-    {
-    name: 'Blastoise',
-    height: 1.6,
-    type: 'water'
-    }
-  ];
+  let pokemonArray = [];
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=30';
   
-  // Add pokémon to the list if it's an object with specific keys
+  // Adds pokémon to the list if it's an object with specific keys
   function add(pokemon){ 
     if (typeof pokemon === 'object' &&
        'name' in pokemon &&
-       'height' in pokemon &&
-       'type' in pokemon) {
-      pokemonList.push(pokemon);
+       'detailsUrl' in pokemon) {
+      pokemonArray.push(pokemon);
     } else {
       console.log('Invalid Pokémon');
     }
   }
   
-  //Retrieve list
+  //Retrieves list
   function getAll(){ 
     return pokemonArray;
   }
   
-  //Create list items for each pokemon and display them as buttons
+  //Creates list items for each pokemon and turns them into buttons
   function addPokemonItem(pokemon){ 
     let pokemonList = document.querySelector('.pokemon-list');
     let pokemonItem = document.createElement('li');
@@ -75,24 +29,66 @@ let pokemonRepository = (function () {
     pokemonItem.appendChild(pokemonButton);
     pokemonList.appendChild(pokemonItem);
 
-    //Log pokemon details in the console when their button is clicked
+    //Logs pokémon details in the console when their button is clicked
     pokemonButton.addEventListener('click', function() {
       showDetails(pokemon);
     });
   };
 
-  function showDetails(pokemon){
-    console.log(pokemon);
-  };
+  //Logs pokémon details in the console
+  function showDetails(pokemon) {
+    loadDetails(pokemon).then(function(){
+      console.log(pokemon);
+    });
+  }
+
+  //Fetches pokémon list from API and adds pokémons as objects
+  function loadList() {
+    return fetch(apiUrl)
+    .then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      json.results.forEach(function (item) {
+        let pokemon = {
+          name: item.name,
+          detailsUrl: item.url
+        };
+        add(pokemon);
+      });
+    }).catch(function (e) {
+      console.error(e);
+    })
+  }
   
+  //Returns specific pokémon details 
+  function loadDetails(item) {
+    let url = item.detailsUrl;
+    return fetch(url).then(function(response){
+      return response.json();
+    }).then(function(details){
+      // Adds pokémon details to item
+      item.id = details.id;
+      item.imageUrl = details.sprites.front_default;
+      item.height = details.height;
+      item.types = details.types;
+    }).catch(function(e){
+      console.error(e);
+    });
+  }
+  
+  //Makes functions accessible outside IIFE
   return {
     add,
     getAll,
-    addPokemonItem
+    addPokemonItem,
+    loadList,
+    loadDetails
   };
-})();
+})(); //IIFE ENDS
 
-//Display pokemon list by calling getAll & forEach functions and returning created items
-pokemonRepository.getAll().forEach(function(pokemon){
-  pokemonRepository.addPokemonItem(pokemon)
+//Displays pokemon list by loading list, then calling getAll & forEach functions and returning created items
+pokemonRepository.loadList().then(function(){
+  pokemonRepository.getAll().forEach(function(pokemon){
+    pokemonRepository.addPokemonItem(pokemon)
+  });
 });

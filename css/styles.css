@@ -78,6 +78,7 @@ body {
     padding: 30px;
     text-align: left;
     letter-spacing: 0.1em;
+    text-transform: capitalize;
 }
 
 .pokemon-button:hover {
