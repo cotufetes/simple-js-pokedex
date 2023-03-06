@@ -60,10 +60,11 @@ let pokemonRepository = (function () {
     })
   }
   
-  //Returns specific pokémon details 
+  //Gets data from detailsURL and returns specific pokémon details
   function loadDetails(item) {
     let url = item.detailsUrl;
-    return fetch(url).then(function(response){
+    return fetch(url)
+    .then(function(response){
       return response.json();
     }).then(function(details){
       // Adds pokémon details to item
