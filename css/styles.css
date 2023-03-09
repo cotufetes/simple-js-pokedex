@@ -87,6 +87,21 @@ body {
     cursor: pointer;
 }
 
+footer {
+    padding: 50px 20px;
+    text-align: center;
+    color: #fff;
+    line-height: 1.2em;
+}
+
+footer a {
+    color: #fff;
+}
+
+footer a:hover {
+    color: var(--yellow);
+}
+
 /*------RESPONSIVE-------*/
 
 @media all and (max-width: 1080px) {
