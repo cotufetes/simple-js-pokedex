@@ -94,10 +94,6 @@ body {
     cursor: pointer;
 }
 
-footer {
-    text-align: center;
-}
-
 /*------RESPONSIVE-------*/
 
 @media all and (max-width: 1080px) {
@@ -113,7 +109,7 @@ footer {
 @media all and (max-width: 576px) {
 
     body {
-        font-size: 20px;
+        font-size: 22px;
     }
 
     .pokemon-list{
@@ -130,4 +126,321 @@ footer {
         padding: 20px;
     }
 
+}
+
+/*-------------MODAL-------------*/
+
+#modal-container {
+    display: none;
+}
+  
+#modal-container.is-visible {
+    position: fixed;
+    padding: 30px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #046BFB;
+    
+    /* to show it above other content */
+    z-index: 999; 
+    
+    /* to allow scrolling if the screen is not high enough*/
+    overflow: auto; 
+    
+    /* this is used to center the modal */
+    display: -ms-grid;
+    display: grid;
+    text-align: center;
+}
+  
+.modal {
+    margin: auto;
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 100%;
+    max-width: 900px;
+    min-width: 270px;
+
+    /*for close button*/
+    text-align: right; 
+}
+  
+.modal-close {
+    font-size: 2em;
+    font-weight: bold;
+    background: transparent;
+    border: none;
+}
+  
+.modal-close:hover {
+    cursor: pointer;
+}
+  
+.pokedex{
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    /*override modal's*/
+    text-align: left;
+}
+  
+.left-panel, .right-panel {
+    width: 50%;
+}
+  
+.top-panel {
+    background-color: #D81E1E;
+}
+  
+.bottom-panel {
+    background-color: #D81E1E;
+}
+  
+.top-panel {
+    border: 5px solid #000;
+}
+  
+.bottom-panel {
+    border: 5px solid #000;
+}
+  
+.light {
+    border: 5px solid #000;
+}
+  
+.screen-frame {
+    border: 5px solid #000;
+}
+  
+.screen {
+    border: 5px solid #000;
+}
+  
+.top-panel {
+    height: 20%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 1.5% 5%;
+}
+  
+.light {
+    border-radius: 100%;
+}
+  
+.big-light {
+    width: 12%;
+    background: #046BFB;
+}
+  
+.small-light {
+    width: 5%;
+    margin-left: 3%;
+}
+  
+.big-light::after, .small-light::after {
+    /*this makes containers square and responsive*/
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+  
+.small-light__red {
+    background-color: #D81E1E;
+}
+  
+.small-light__yellow {
+    background-color: #FCEC2C;
+}
+  
+.small-light__green {
+    background-color: #18D52B;
+}
+  
+.bottom-panel {
+    height: 80%;
+    border-top: none;
+    -webkit-box-shadow: 5px 5px #000;
+            box-shadow: 5px 5px #000;
+    padding: 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+  
+.screen-frame {
+    height: 90%;
+    width: 90%;
+    padding: 5%;
+    border-radius: 0 0 0 40px;
+    background-color: #DCDCDC;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+  
+.screen {
+    border-radius: 20px;
+    padding: 20px;
+    letter-spacing: 0.1em;
+}
+  
+.image-screen {
+    height: 80%;
+    width: 80%;
+    background: #000;
+    padding: 5%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+  
+.pokemon-image{
+    width: 70%;
+    height: auto;
+}
+  
+.invisible-panel {
+    background: transparent;
+    border: none;
+    border-bottom: 5px solid #000;
+    border-top: 5px solid transparent;
+}
+  
+.data-screens {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 20px;
+}
+  
+.name-screen{
+    width: 85%;
+    background-color: #18D52B;
+    text-transform: capitalize;
+}
+
+.name-screen h2{
+    font-size: 1.2em;
+    line-height: 0.8em;
+}
+  
+.small-screens {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 20px;
+}
+  
+.small-screens h3{
+    font-size: 0.6em;
+    text-transform: uppercase;
+}
+  
+.small-screens p, .small-screens li{
+    font-size: 0.6em;
+}
+
+.small-screens ul{
+    list-style: "> ";
+    padding-left: inherit;
+    margin-top: 0;
+}
+  
+.height-screen {
+    width: 50%;
+    background-color: #FCEC2C;
+}
+  
+.types-screen {
+    width: 50%;
+    background-color: #FCEC2C;
+}
+
+.types-screen {
+    text-transform: capitalize;
+}
+  
+@media all and (max-width: 780px) {
+  
+    .pokedex {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+    }
+  
+    .left-panel, .right-panel {
+      width: 100%;
+    }
+  
+    .invisible-panel {
+      display: none;
+    }
+  
+    .name-screen{
+      width: 90%;
+    }
+    
+    .height-screen, .types-screen {
+      width: 100%;
+    }
+  
+}
+  
+@media all and (max-width: 450px) {
+  
+    .small-screens {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+    }
+  
+    .name-screen, .height-screen, .types-screen {
+      width: 80%;
+    }
+
+    .name-screen h2{
+        font-size: 1em;
+        line-height: 0.6em;
+    }
+  
 }

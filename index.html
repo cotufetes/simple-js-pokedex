@@ -3,14 +3,60 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Pokédex - Simple JS App</title>
+    <title>Pokédex - A simple JS App</title>
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/style.production.css">
   </head>
   <body>
     <img src="img/pokeball-top.svg" class="pokeball" alt="Top part of a pokéball">
+
     <ul class="pokemon-list"></ul>
+    <!--Start Pokémon Modal-->
+    <div id="modal-container">
+      <div class="modal">
+        <button class="modal-close">x</button>
+        <div class="pokedex">
+          <div class="left-panel">
+            <div class="top-panel">
+              <div class="light big-light"></div>
+              <div class="light small-light small-light__red"></div>
+              <div class="light small-light small-light__yellow"></div>
+              <div class="light small-light small-light__green"></div>
+            </div>
+            <div class="bottom-panel">
+              <div class="screen-frame">
+                <div class="screen image-screen">
+                  <img class="pokemon-image">
+                </div><!--Close image-screen-->
+              </div><!--Close screen-frame-->
+            </div><!--Close bottom-panel-->
+          </div> <!--Close left-panel-->
+          <div class="right-panel">
+            <div class="top-panel invisible-panel"></div>
+            <div class="bottom-panel">
+              <div class="data-screens">
+                <div class="screen name-screen">
+                  <h2 class="pokemon-id"></h2>
+                  <h2 class="pokemon-name"></h2>
+                </div>
+                <div class="small-screens">
+                  <div class="screen height-screen">
+                    <h3>Height:</h3>
+                    <p class="pokemon-height"></p>
+                  </div>
+                  <div class="screen types-screen">
+                    <h3>Types:</h3>
+                    <ul class="pokemon-types"></ul>
+                  </div>
+                </div> <!--Close small-screens-->
+              </div> <!-- Close data-screens-->
+            </div> <!--Close bottom-panel-->
+          </div> <!--Close right-panel-->
+        </div> <!--Close pokedex-->
+      </div> <!--Close modal-->
+    </div> <!--Close modal-container-->
+    <!--End Pokémon Modal-->
     <img src="img/pokeball-bottom.svg" class="pokeball" alt="Bottom part of a pokéball">
     <script src="js/promise-polyfill.js"></script>
     <script src="js/fetch-polyfill.js"></script>

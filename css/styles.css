@@ -87,10 +87,6 @@ body {
     cursor: pointer;
 }
 
-footer {
-    text-align: center;
-}
-
 /*------RESPONSIVE-------*/
 
 @media all and (max-width: 1080px) {
@@ -105,7 +101,7 @@ footer {
 @media all and (max-width: 576px) {
 
     body {
-        font-size: 20px;
+        font-size: 22px;
     }
 
     .pokemon-list{
@@ -118,4 +114,253 @@ footer {
         padding: 20px;
     }
 
+}
+
+/*-------------MODAL-------------*/
+
+#modal-container {
+    display: none;
+}
+  
+#modal-container.is-visible {
+    position: fixed;
+    padding: 30px;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--blue);
+    
+    /* to show it above other content */
+    z-index: 999; 
+    
+    /* to allow scrolling if the screen is not high enough*/
+    overflow: auto; 
+    
+    /* this is used to center the modal */
+    display: grid;
+    text-align: center;
+}
+  
+.modal {
+    margin: auto;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 900px;
+    min-width: 270px;
+
+    /*for close button*/
+    text-align: right; 
+}
+  
+.modal-close {
+    font-size: 2em;
+    font-weight: bold;
+    background: transparent;
+    border: none;
+}
+  
+.modal-close:hover {
+    cursor: pointer;
+}
+  
+.pokedex{
+    width: 100%;
+    display: flex;
+
+    /*override modal's*/
+    text-align: left;
+}
+  
+.left-panel, .right-panel {
+    width: 50%;
+}
+  
+.top-panel, .bottom-panel {
+    background-color: var(--red);
+}
+  
+.top-panel, .bottom-panel, .light, .screen-frame, .screen {
+    border: 5px solid var(--black);
+}
+  
+.top-panel {
+    height: 20%;
+    display: flex;
+    align-items: center;
+    padding: 1.5% 5%;
+}
+  
+.light {
+    border-radius: 100%;
+}
+  
+.big-light {
+    width: 12%;
+    background: var(--blue);
+}
+  
+.small-light {
+    width: 5%;
+    margin-left: 3%;
+}
+  
+.big-light::after, .small-light::after {
+    /*this makes containers square and responsive*/
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+  
+.small-light__red {
+    background-color: var(--red);
+}
+  
+.small-light__yellow {
+    background-color: var(--yellow);
+}
+  
+.small-light__green {
+    background-color: var(--green);
+}
+  
+.bottom-panel {
+    height: 80%;
+    border-top: none;
+    box-shadow: 5px 5px var(--black);
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.screen-frame {
+    height: 90%;
+    width: 90%;
+    padding: 5%;
+    border-radius: 0 0 0 40px;
+    background-color: var(--light-grey);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.screen {
+    border-radius: 20px;
+    padding: 20px;
+    letter-spacing: 0.1em;
+}
+  
+.image-screen {
+    height: 80%;
+    width: 80%;
+    background: var(--black);
+    padding: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.pokemon-image{
+    width: 70%;
+    height: auto;
+}
+  
+.invisible-panel {
+    background: transparent;
+    border: none;
+    border-bottom: 5px solid var(--black);
+    border-top: 5px solid transparent;
+}
+  
+.data-screens {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+  
+.name-screen{
+    width: 85%;
+    background-color: var(--green);
+    text-transform: capitalize;
+}
+
+.name-screen h2{
+    font-size: 1.2em;
+    line-height: 0.8em;
+}
+  
+.small-screens {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+}
+  
+.small-screens h3{
+    font-size: 0.6em;
+    text-transform: uppercase;
+}
+  
+.small-screens p, .small-screens li{
+    font-size: 0.6em;
+}
+
+.small-screens ul{
+    list-style: "> ";
+    padding-left: inherit;
+    margin-top: 0;
+}
+  
+.height-screen, .types-screen {
+    width: 50%;
+    background-color: var(--yellow);
+}
+
+.types-screen {
+    text-transform: capitalize;
+}
+  
+@media all and (max-width: 780px) {
+  
+    .pokedex {
+      flex-direction: column;
+    }
+  
+    .left-panel, .right-panel {
+      width: 100%;
+    }
+  
+    .invisible-panel {
+      display: none;
+    }
+  
+    .name-screen{
+      width: 90%;
+    }
+    
+    .height-screen, .types-screen {
+      width: 100%;
+    }
+  
+}
+  
+@media all and (max-width: 450px) {
+  
+    .small-screens {
+      flex-direction: column;
+    }
+  
+    .name-screen, .height-screen, .types-screen {
+      width: 80%;
+    }
+
+    .name-screen h2{
+        font-size: 1em;
+        line-height: 0.6em;
+    }
+  
 }
