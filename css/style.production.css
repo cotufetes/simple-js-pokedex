@@ -158,7 +158,7 @@ footer a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #046BFB;
+    background: rgba(4, 107, 251, 0.9);
     
     /* to show it above other content */
     z-index: 999; 
