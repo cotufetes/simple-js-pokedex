@@ -110,6 +110,27 @@ let pokemonRepository = (function () {
     });
 
   } //Modal ends
+
+  function searchPokemon() {
+    let searchInput = document.getElementById('search-input');
+    let searchText = searchInput.value.toLowerCase();
+    let allPokemon = document.querySelectorAll('.list-group-item');
+
+    allPokemon.forEach(function(pokemon) {
+      let pokemonName = pokemon.querySelector('.pokemon-button').innerText.toLowerCase();
+
+      if (pokemonName.includes(searchText)) {
+        pokemon.style.display = 'block';
+      } else {
+        pokemon.style.display = 'none';
+      }
+    });
+  }  
+
+  let searchInput = document.getElementById("search-input");
+  searchInput.addEventListener("input", function () {
+    searchPokemon();
+  });
   
   //Makes functions accessible outside IIFE
   return {

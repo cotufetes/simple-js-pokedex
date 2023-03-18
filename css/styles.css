@@ -44,12 +44,43 @@
 
 body {
     background-color: var(--blue);
-    padding: 5%;
     font-family: 'Source Code Pro', monospace;
     font-size: 25px;
 }
 
+header {
+    background: rgba(4, 107, 251, 0.9);
+}
+
+.navbar-brand {
+    font-size: 1.3em;
+    color: #fff;
+    letter-spacing: 0.1em;
+}
+
+.navbar-brand:hover {
+    color: var(--yellow);
+}
+
+.pokemon-search {
+    border-radius: 0;
+    background-color: transparent;
+    border: 3px solid #fff;
+    color: var(--black);
+}
+
+.pokemon-search::placeholder {
+    color: #fff;
+    opacity: 1;
+    font-style: italic;
+}
+
+main {
+    padding-top: 80px;
+}
+
 .pokeball {
+    z-index: 99;
     width: 40%;
     min-width: 250px;
     max-width: 600px;
@@ -72,6 +103,7 @@ body {
 li.list-group-item{
     padding: 0;
     border: none;
+    justify-content: center;
 }
 
 .pokemon-button {
