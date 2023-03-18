@@ -23,9 +23,15 @@ let pokemonRepository = (function () {
   function addPokemonItem(pokemon){ 
     let pokemonList = document.querySelector('.pokemon-list');
     let pokemonItem = document.createElement('li');
+    pokemonItem.classList.add('list-group-item');
+
     let pokemonButton = document.createElement('button');
     pokemonButton.innerText = pokemon.name;
     pokemonButton.classList.add('pokemon-button');
+    pokemonButton.classList.add('btn');
+    pokemonButton.setAttribute('data-toggle', 'modal');
+    pokemonButton.setAttribute('data-target', '#pokemonModal');
+
     pokemonItem.appendChild(pokemonButton);
     pokemonList.appendChild(pokemonItem);
 
@@ -101,39 +107,9 @@ let pokemonRepository = (function () {
       });
       let pokemonTypes = document.querySelector('.pokemon-types');
       pokemonTypes.innerHTML = itemTypes;
-
-      //Adds visibility class to modal container
-      let modalContainer = document.querySelector('#modal-container');
-      modalContainer.classList.add('is-visible');
-
-      //Closes modal when clicking x button
-      let closeButtonElement = document.querySelector('.modal-close');
-      closeButtonElement.addEventListener('click', hideModal);
-
-      //Closes modal when clicking on overlay
-      modalContainer.addEventListener('click', (e) => {
-        // Since this is also triggered when clicking INSIDE the modal
-        let target = e.target;
-        if (target === modalContainer) {
-          hideModal();
-        }
-      });
     });
+
   } //Modal ends
-
-  //Removes visibility class from modal
-  function hideModal() {
-    let modalContainer = document.querySelector('#modal-container');
-    modalContainer.classList.remove('is-visible');
-  }
-
-  //Closes modal when pressing ESC key
-  window.addEventListener('keydown', (e) => {
-    let modalContainer = document.querySelector('#modal-container');
-    if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-      hideModal();  
-    }
-  });
   
   //Makes functions accessible outside IIFE
   return {
