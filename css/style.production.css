@@ -161,6 +161,23 @@ footer a:hover {
 
 }
 
+@media all and (max-width:417px) {
+
+    main {
+        padding-top: 120px;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: center;
+    }
+
+    .pokemon-search::placeholder {
+        text-align: center;
+    }
+
+}
+
 /*-------------MODAL-------------*/
 
 .modal {
