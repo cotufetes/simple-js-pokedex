@@ -86,6 +86,28 @@ main {
     margin: 0 auto;
 }
 
+#list-loader:not([hidden]) {
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader-pokeball {
+    width: 50px;
+    height: 50px;
+    animation: fading 1s infinite alternate linear;
+}
+  
+@keyframes fading {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+}
+
 .pokemon-list{
     padding: 3% 5%;
     list-style-type: none;
@@ -202,7 +224,6 @@ footer a:hover {
 
 .close {
     font-size: 2em;
-    padding: 0;
 }
   
 .close:hover {
@@ -294,7 +315,6 @@ footer a:hover {
   
 .pokemon-image{
     width: 60%;
-    height: auto;
 }
 
 /*---Bottom-panel (data screens) ----*/

@@ -50,6 +50,9 @@ let pokemonRepository = (function () {
 
   //Fetches pokémon list from API and adds pokémons as objects
   function loadList() {
+    let listLoader = document.getElementById("list-loader");
+    listLoader.removeAttribute('hidden');
+
     return fetch(apiUrl)
     .then(function (response) {
       return response.json();
@@ -59,7 +62,10 @@ let pokemonRepository = (function () {
           name: item.name,
           detailsUrl: item.url
         };
+
         add(pokemon);
+
+        listLoader.setAttribute('hidden', '');
       });
     }).catch(function (e) {
       console.error(e);
