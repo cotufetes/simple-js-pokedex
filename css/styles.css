@@ -80,7 +80,6 @@ main {
 }
 
 .pokeball {
-    z-index: 99;
     width: 40%;
     min-width: 250px;
     max-width: 600px;
@@ -89,21 +88,22 @@ main {
 
 .pokemon-list{
     padding: 3% 5%;
-    list-style: none;
+    list-style-type: none;
     /*----Start grid fallback----*/
     display: flex; 
     flex-wrap: wrap;
-    justify-content: center;
     /*----End grid fallback----*/
     display: grid; 
     grid-template-columns: 1fr 1fr 1fr;
     gap: 50px;
+    text-align: center;
+    justify-content: center;
 }
 
-li.list-group-item{
+.list-group-item{
+    display: inline-block;
     padding: 0;
     border: none;
-    justify-content: center;
 }
 
 .pokemon-button {
