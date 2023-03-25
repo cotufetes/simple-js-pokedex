@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 /* Self-hosted Google Fonts (latin-ext)*/
 
 @font-face {
@@ -61,6 +68,30 @@ header {
     color: #000;
 }
 
+.pokemon-search::-webkit-input-placeholder {
+    color: #fff;
+    opacity: 1;
+    font-style: italic;
+}
+
+.pokemon-search::-moz-placeholder {
+    color: #fff;
+    opacity: 1;
+    font-style: italic;
+}
+
+.pokemon-search:-ms-input-placeholder {
+    color: #fff;
+    opacity: 1;
+    font-style: italic;
+}
+
+.pokemon-search::-ms-input-placeholder {
+    color: #fff;
+    opacity: 1;
+    font-style: italic;
+}
+
 .pokemon-search::placeholder {
     color: #fff;
     opacity: 1;
@@ -72,37 +103,83 @@ main {
 }
 
 .pokeball {
-    z-index: 99;
     width: 40%;
     min-width: 250px;
     max-width: 600px;
     margin: 0 auto;
 }
 
-.pokemon-list{
-    padding: 3% 5%;
-    list-style: none;
-    /*----Start grid fallback----*/
-    display: flex; 
-    flex-wrap: wrap;
-    justify-content: center;
-    /*----End grid fallback----*/
-    display: grid; 
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 50px;
+#list-loader:not([hidden]) {
+    padding: 50px 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
-li.list-group-item{
+.loader-pokeball {
+    width: 50px;
+    height: 50px;
+    -webkit-animation: fading 1s infinite alternate linear;
+            animation: fading 1s infinite alternate linear;
+}
+  
+@-webkit-keyframes fading {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+}
+  
+@keyframes fading {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+}
+
+.pokemon-list{
+    padding: 3% 5%;
+    list-style-type: none;
+    /*----Start grid fallback----*/
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; 
+    -ms-flex-wrap: wrap; 
+        flex-wrap: wrap;
+    /*----End grid fallback----*/
+    display: -ms-grid;
+    display: grid; 
+    -ms-grid-columns: 1fr 50px 1fr 50px 1fr; 
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 50px;
+    text-align: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+
+.list-group-item{
+    display: inline-block;
     padding: 0;
     border: none;
-    justify-content: center;
 }
 
 .pokemon-button {
     width: 100%;
     border: 5px solid #000;
     border-radius: 0;
-    box-shadow: 5px 5px #000;
+    -webkit-box-shadow: 5px 5px #000;
+            box-shadow: 5px 5px #000;
     padding: 30px;
     font-size: 1em;
     text-align: left;
@@ -137,6 +214,7 @@ footer a:hover {
 @media all and (max-width: 1080px) {
 
     .pokemon-list{
+        -ms-grid-columns: 1fr 40px 1fr;
         grid-template-columns: 1fr 1fr;
         gap: 40px;
     }
@@ -150,7 +228,11 @@ footer a:hover {
     }
 
     .pokemon-list{
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
         gap: 25px;
     }
@@ -168,8 +250,28 @@ footer a:hover {
     }
 
     .navbar {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        justify-content: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+    }
+
+    .pokemon-search::-webkit-input-placeholder {
+        text-align: center;
+    }
+
+    .pokemon-search::-moz-placeholder {
+        text-align: center;
+    }
+
+    .pokemon-search:-ms-input-placeholder {
+        text-align: center;
+    }
+
+    .pokemon-search::-ms-input-placeholder {
+        text-align: center;
     }
 
     .pokemon-search::placeholder {
@@ -194,7 +296,6 @@ footer a:hover {
 
 .close {
     font-size: 2em;
-    padding: 0;
 }
   
 .close:hover {
@@ -203,7 +304,8 @@ footer a:hover {
 
 .panel {
     background-color: #D81E1E;
-    box-shadow: 5px 5px #000;
+    -webkit-box-shadow: 5px 5px #000;
+            box-shadow: 5px 5px #000;
 }
 
 .panel {
@@ -225,8 +327,12 @@ footer a:hover {
 /*---Top panel (lights) ----*/
 
 .lights-panel {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     padding: 1.5% 5%;
 }
 
@@ -268,18 +374,30 @@ footer a:hover {
 .image-panel, .data-panel {
     border-top: none;
     padding: 5%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 .screen-frame {
     padding: 5%;
     border-radius: 0 0 0 40px;
     background-color: #DCDCDC;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 .screen {
@@ -291,14 +409,19 @@ footer a:hover {
 .image-screen {
     background: #000;
     padding: 5%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
   
 .pokemon-image{
     width: 60%;
-    height: auto;
 }
 
 /*---Bottom-panel (data screens) ----*/
