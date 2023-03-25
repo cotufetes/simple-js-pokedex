@@ -111,15 +111,16 @@ let pokemonRepository = (function () {
 
   } //Modal ends
 
+  //Matches search input to pokemon name and hides buttons not matching
   function searchPokemon() {
     let searchInput = document.getElementById('search-input');
     let searchText = searchInput.value.toLowerCase();
     let allPokemon = document.querySelectorAll('.list-group-item');
 
     allPokemon.forEach(function(pokemon) {
-      let pokemonName = pokemon.querySelector('.pokemon-button').innerText.toLowerCase();
+      let pokemonText = pokemon.querySelector('.pokemon-button').innerText.toLowerCase();
 
-      if (pokemonName.includes(searchText)) {
+      if (pokemonText.includes(searchText)) {
         pokemon.style.display = 'block';
       } else {
         pokemon.style.display = 'none';
@@ -127,6 +128,7 @@ let pokemonRepository = (function () {
     });
   }  
 
+  //Triggers search function as input is typed
   let searchInput = document.getElementById("search-input");
   searchInput.addEventListener("input", function () {
     searchPokemon();
