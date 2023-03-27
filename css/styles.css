@@ -108,7 +108,7 @@ main {
     }
 }
 
-.pokemon-list{
+.pokemon-list {
     padding: 3% 5%;
     list-style-type: none;
     /*----Start grid fallback----*/
@@ -135,7 +135,7 @@ main {
     box-shadow: 5px 5px var(--black);
     padding: 30px;
     font-size: 1em;
-    text-align: left;
+    text-align: center;
     letter-spacing: 0.1em;
     text-transform: capitalize;
 }
@@ -144,6 +144,10 @@ main {
     background-color: var(--yellow);
     font-weight: bold;
     cursor: pointer;
+}
+
+.search-list {
+    grid-template-columns: 1fr;
 }
 
 footer {
@@ -169,6 +173,10 @@ footer a:hover {
     .pokemon-list{
         grid-template-columns: 1fr 1fr;
         gap: 40px;
+    }
+
+    .search-list {
+        grid-template-columns: 1fr;
     }
 
 }

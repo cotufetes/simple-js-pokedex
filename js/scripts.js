@@ -121,13 +121,16 @@ let pokemonRepository = (function () {
   function searchPokemon() {
     let searchInput = document.getElementById('search-input');
     let searchText = searchInput.value.toLowerCase();
+    let emptyInput = '';
     let allPokemon = document.querySelectorAll('.list-group-item');
 
     allPokemon.forEach(function(pokemon) {
       let pokemonText = pokemon.querySelector('.pokemon-button').innerText.toLowerCase();
 
       if (pokemonText.includes(searchText)) {
-        pokemon.style.display = 'block';
+        let searchList = document.querySelector('.pokemon-list');
+        searchList.classList.add('search-list');
+        pokemon.style.display = 'inline-block';
       } else {
         pokemon.style.display = 'none';
       }
