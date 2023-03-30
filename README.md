@@ -23,7 +23,7 @@ The app fetches data from PokéAPI to display Pokémons as a list of buttons, ea
 - [Fetch Polyfill](https://github.com/github/fetch)
 - [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
 
-## Screenshots
+## Interface
 
 ![pokedex_desktop](https://user-images.githubusercontent.com/118216207/228773184-cf216b00-bcdd-4b9d-a8d2-07007e538926.png)
 ![pokedex-modal_desktop](https://user-images.githubusercontent.com/118216207/228773191-ed38fba8-34d4-4c99-8b43-99acc4dbf3c3.png)
