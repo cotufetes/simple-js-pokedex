@@ -125,14 +125,15 @@ let pokemonRepository = (function () {
 
     allPokemon.forEach(function(pokemon) {
       let pokemonText = pokemon.querySelector('.pokemon-button').innerText.toLowerCase();
+      let searchList = document.querySelector('.pokemon-list');
 
       if (pokemonText.includes(searchText)) {
-        let searchList = document.querySelector('.pokemon-list');
         searchList.classList.add('search-list');
         pokemon.style.display = 'inline-block';
       } else {
         pokemon.style.display = 'none';
       }
+
     });
   }  
 
