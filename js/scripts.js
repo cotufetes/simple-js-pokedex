@@ -134,6 +134,10 @@ let pokemonRepository = (function () {
         pokemon.style.display = 'none';
       }
 
+      if (!searchInput.value) {
+        searchList.classList.remove('search-list');
+      }
+
     });
   }  
 
